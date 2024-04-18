@@ -7,7 +7,10 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, REST.Response.Adapter, REST.Client, Data.Bind.Components,
-  Data.Bind.ObjectScope, FireDAC.DApt, FireDAC.Stan.StorageBin;
+  Data.Bind.ObjectScope, FireDAC.DApt, FireDAC.Stan.StorageBin, FireDAC.UI.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
+  FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.FMXUI.Wait;
 
 type
   TDataModule1 = class(TDataModule)
@@ -21,11 +24,18 @@ type
     RESTRequestConvert: TRESTRequest;
     RESTResponse2: TRESTResponse;
     RESTResponseDataSetAdapter2: TRESTResponseDataSetAdapter;
-    FDMemTable2: TFDMemTable;
+    FDMemTableResult: TFDMemTable;
+    OerConnection: TFDConnection;
+    Log_exchangeTable: TFDQuery;
+    Log_exchangeTableid: TLargeintField;
+    Log_exchangeTablefrom: TWideStringField;
+    Log_exchangeTableto: TWideStringField;
+    Log_exchangeTableamount: TWideMemoField;
+    Log_exchangeTabledate: TWideMemoField;
     procedure DataModuleCreate(Sender: TObject);
+    procedure SaveTransaction;
   private
     { Private declarations }
-    FSymbols: TStringList;
     procedure LoadJSONToMemTableAdapted(const JSONStr: string);
   public
     { Public declarations }
@@ -55,6 +65,9 @@ begin
   end;
 
   RESTRequestConvert.Execute;
+
+  SaveTransaction;
+
 end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
@@ -96,6 +109,21 @@ begin
     end;
   finally
     JSONObj.Free;
+  end;
+end;
+
+procedure TDataModule1.SaveTransaction;
+begin
+  with Log_exchangeTable do
+  begin
+    Open;
+    Append;
+    FieldByName('from').Value := FDMemTableResult.FieldByName('query.from').Value;
+    FieldByName('to').Value := FDMemTableResult.FieldByName('query.to').Value;
+    FieldByName('amount').Value := FDMemTableResult.FieldByName('query.amount').Value;
+    FieldByName('date').Value := DateTimeToStr(Now);
+    Post;
+    Close;
   end;
 end;
 

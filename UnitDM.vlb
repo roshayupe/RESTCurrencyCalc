@@ -22,12 +22,12 @@ Coordinates=107,71,96,303
 [RESTResponseDataSetAdapter2]
 Coordinates=465,98,174,33
 
-[FDMemTable2]
-Coordinates=107,1,84,231
-
 [RESTRequestConvert]
 Coordinates=0,0,121,159
 
 [RESTRequestSymbols]
 Coordinates=339,10,125,105
+
+[FDMemTableResult]
+Coordinates=107,1,84,231
 

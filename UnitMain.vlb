@@ -47,10 +47,6 @@ Coordinates=590,170,72,51
 [DataModule1.RESTResponse2]
 Coordinates=199,10,163,303
 
-[DataModule1.FDMemTable2]
-Coordinates=390,190,151,33
-Visible=False
-
 [DataModule1.RESTRequestConvert]
 Coordinates=388,10,188,159
 
@@ -62,4 +58,8 @@ Coordinates=390,190,138,249
 
 [ButtonCalc]
 Coordinates=31,332,69,51
+
+[DataModule1.FDMemTableResult]
+Coordinates=390,190,151,33
+Visible=False
 

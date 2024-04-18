@@ -138,7 +138,7 @@ object DataModule1: TDataModule1
   end
   object RESTResponseDataSetAdapter2: TRESTResponseDataSetAdapter
     Active = True
-    Dataset = FDMemTable2
+    Dataset = FDMemTableResult
     FieldDefs = <>
     Response = RESTResponse2
     TypesMode = Rich
@@ -146,7 +146,7 @@ object DataModule1: TDataModule1
     Left = 280
     Top = 184
   end
-  object FDMemTable2: TFDMemTable
+  object FDMemTableResult: TFDMemTable
     Active = True
     FieldDefs = <
       item
@@ -205,5 +205,44 @@ object DataModule1: TDataModule1
     StoreDefs = True
     Left = 280
     Top = 240
+  end
+  object OerConnection: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=OER')
+    Connected = True
+    LoginPrompt = False
+    Left = 489
+    Top = 23
+  end
+  object Log_exchangeTable: TFDQuery
+    Connection = OerConnection
+    SQL.Strings = (
+      'SELECT * FROM log_exchange')
+    Left = 486
+    Top = 87
+    object Log_exchangeTableid: TLargeintField
+      FieldName = 'id'
+    end
+    object Log_exchangeTablefrom: TWideStringField
+      FieldName = 'from'
+      Required = True
+      Size = 3
+    end
+    object Log_exchangeTableto: TWideStringField
+      FieldName = 'to'
+      Required = True
+      Size = 3
+    end
+    object Log_exchangeTableamount: TWideMemoField
+      FieldName = 'amount'
+      Required = True
+      BlobType = ftWideMemo
+    end
+    object Log_exchangeTabledate: TWideMemoField
+      FieldName = 'date'
+      Origin = 'date'
+      Required = True
+      BlobType = ftWideMemo
+    end
   end
 end
