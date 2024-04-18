@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/04/16 12:30:23.000.100,=C:\Users\Yurii\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/04/16 12:58:51.000.017,C:\Users\Yurii\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Yurii\Documents\Projects\OpenExchangeRates\UnitMain.pas</Transaction>
+    <Transaction>2024/04/16 12:58:51.000.017,C:\Users\Yurii\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\Yurii\Documents\Projects\OpenExchangeRates\UnitMain.fmx</Transaction>
+    <Transaction>2024/04/16 12:59:08.000.065,C:\Users\Yurii\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Yurii\Documents\Projects\OpenExchangeRates\ProjectOER.dproj</Transaction>
+    <Transaction>2024/04/17 16:56:51.000.834,=C:\Users\Yurii\Documents\Projects\OpenExchangeRates\Unit1.pas</Transaction>
+    <Transaction>2024/04/17 16:57:26.000.576,C:\Users\Yurii\Documents\Projects\OpenExchangeRates\Unit1.dfm=C:\Users\Yurii\Documents\Projects\OpenExchangeRates\UnitDM.dfm</Transaction>
+    <Transaction>2024/04/17 16:57:26.000.576,C:\Users\Yurii\Documents\Projects\OpenExchangeRates\Unit1.pas=C:\Users\Yurii\Documents\Projects\OpenExchangeRates\UnitDM.pas</Transaction>
+  </Transactions>
+</BorlandProject>
